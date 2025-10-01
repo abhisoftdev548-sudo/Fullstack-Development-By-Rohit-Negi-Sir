@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Media</title>
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
+  </head>
+  <body>
+    <a href="index.html"><p>&larr; Back To Home</p></a>
+    <h1>HTML MEDIA</h1>
+    <iframe src="https://www.youtube.com/embed/NGYp1zCBthk" height="400px" width="700px" allowfullscreen></iframe>
+    <h2>First Principle: The Web is More Than Text and Images</h2>
+    <p>
+      The fundamental truth is that a webpage should be able to deliver any kind
+      of content, not just static text and pictures. For years, this was a major
+      problem. To play a video or audio file, browsers had to rely on
+      third-party plugins like Adobe Flash, QuickTime, or Silverlight. This was
+      inefficient, insecure, and inconsistent across different computers.
+    </p>
+
+    <h2>The Core Problem</h2>
+    <p>
+      How can we embed video and audio into a webpage in a
+      <strong>standardized, native, and plugin-free</strong> way? We need a
+      universal system that works on every modern browser, from a desktop PC to
+      a mobile phone, without requiring the user to install anything extra.
+    </p>
+
+    <h2>
+      The Logical Solution: The HTML5 &lt;video&gt; and &lt;audio&gt; Tags
+    </h2>
+    <p>
+      The solution was to create dedicated HTML tags whose sole purpose is to
+      embed and control media.
+    </p>
+
+    <h2>Part 1: The Basics - Getting a Video on the Page</h2>
+
+    <p>
+      The star of the show is the <code>&lt;video&gt;</code> tag. At its
+      simplest, it just needs to know the source of the video file.
+    </p>
+
+    <pre><code>&lt;!-- This is the most basic implementation --&gt;
+&lt;video src="my-awesome-video.mp4"&gt;&lt;/video&gt;
+</code></pre>
+
+    <p>
+      <strong>The Problem We Immediately Face:</strong> If you put this on a
+      page, you'll just see the first frame of the video as a static image. You
+      can't play it, pause it, or change the volume. It's not a video player;
+      it's just a video frame.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> We need to add player controls. The browser
+      has a beautiful set of default controls built-in, and we can turn them on
+      with a simple attribute.
+    </p>
+
+    <h3>The <code>controls</code> Attribute: The Magic Switch</h3>
+
+    <p>
+      The <code>controls</code> attribute is a
+      <strong>boolean attribute</strong>. You don't need to set it to a value
+      (<code>controls="true"</code> is unnecessary); its mere presence turns the
+      feature on.
+    </p>
+
+    <pre><code>&lt;video src="my-awesome-video.mp4" controls&gt;&lt;/video&gt;
+</code></pre>
+
+    <p>
+      <strong>Result:</strong> You now have a fully functional video player on
+      your page, complete with a play/pause button, a timeline scrubber, volume
+      controls, and a fullscreen option. This is the simplest, most effective
+      way to embed a video.
+    </p>
+
+    <h2>Part 2: Intermediate - Gaining More Control with Attributes</h2>
+
+    <p>
+      Now that we have a player, how do we control its behavior and appearance?
+      We use attributes.
+    </p>
+
+    <h3><code>width</code> and <code>height</code></h3>
+    <p>
+      Just like with an <code>&lt;img&gt;</code> tag, you can set the dimensions
+      of the player.
+    </p>
+
+    <pre><code>&lt;video src="video.mp4" width="640" height="360" controls&gt;&lt;/video&gt;
+</code></pre>
+
+    <h3><code>autoplay</code></h3>
+    <p>
+      This attribute will make the video start playing as soon as the page
+      loads.
+    </p>
+    <p>
+      <strong>CRITICAL CAVEAT:</strong> Modern browsers (Chrome, Safari,
+      Firefox) will block autoplay with sound because it's a terrible user
+      experience. To make autoplay work, you almost always have to add the
+      <code>muted</code> attribute as well.
+    </p>
+
+    <pre><code>&lt;!-- This will autoplay, but with no sound --&gt;
+&lt;video src="video.mp4" autoplay muted controls&gt;&lt;/video&gt;
+</code></pre>
+
+    <h3><code>loop</code></h3>
+    <p>
+      Makes the video automatically restart from the beginning when it finishes.
+      Great for background videos.
+    </p>
+
+    <h3><code>poster</code></h3>
+    <p>
+      This is a fantastic feature for user experience. It specifies an image to
+      display before the video is played, just like a YouTube thumbnail.
+    </p>
+
+    <pre><code>&lt;video src="video.mp4" poster="images/video-thumbnail.jpg" controls&gt;&lt;/video&gt;
+</code></pre>
+
+    <h2>Part 3: The <code>&lt;audio&gt;</code> Tag</h2>
+
+    <p>
+      The good news is that the <code>&lt;audio&gt;</code> tag works almost
+      identically to the <code>&lt;video&gt;</code> tag, just without the visual
+      component.
+    </p>
+
+    <p>
+      <strong>The Problem:</strong> How do we embed a sound file (like a song or
+      a podcast) with player controls?
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> Use the <code>&lt;audio&gt;</code> tag with
+      the <code>controls</code> attribute.
+    </p>
+
+    <pre><code>&lt;p&gt;Listen to our theme song:&lt;/p&gt;
+&lt;audio src="audio/theme-song.mp3" controls&gt;&lt;/audio&gt;
+</code></pre>
+
+    <p>
+      <strong>Result:</strong> A clean audio player with play/pause, a timeline,
+      and volume controls. It uses the same attributes like
+      <code>autoplay</code>, <code>loop</code>, and <code>muted</code>.
+    </p>
+
+    <h2>Part 4: Advanced & Professional - Solving Real-World Problems</h2>
+
+    <p>
+      This is where we move from just making a player work to making it work for
+      <em>everyone</em>, on <em>every browser</em>.
+    </p>
+
+    <h3>Problem #1: Not all browsers support the same video formats.</h3>
+    <p>
+      Chrome might prefer the modern .webm format, while Safari on an iPhone
+      might only support .mp4. If you only provide one src, some of your users
+      won't be able to see your video.
+    </p>
+
+    <h4>The Solution: The <code>&lt;source&gt;</code> Element</h4>
+    <p>
+      Instead of putting the src on the <code>&lt;video&gt;</code> tag itself,
+      you can provide multiple formats <em>inside</em> the tag using the
+      <code>&lt;source&gt;</code> element. The browser will go down the list and
+      play the <strong>first one it supports</strong>.
+    </p>
+
+    <pre><code>&lt;video controls poster="images/thumbnail.jpg"&gt;
+  &lt;source src="videos/my-video.webm" type="video/webm"&gt;
+  &lt;source src="videos/my-video.mp4" type="video/mp4"&gt;
+  Sorry, your browser doesn't support embedded videos.
+&lt;/video&gt;
+</code></pre>
+
+    <p>
+      This is the robust, professional way to embed media. The
+      <code>type</code> attribute tells the browser what kind of file it is so
+      it doesn't have to waste time downloading a file it can't play.
+    </p>
+
+    <h3>Problem #2: Your video is not accessible.</h3>
+    <p>
+      Users who are deaf or hard of hearing can't understand your video. Users
+      in a noisy environment (or a quiet office) can't listen to the audio.
+      Users speaking another language won't understand it.
+    </p>
+
+    <h4>The Solution: The <code>&lt;track&gt;</code> Element</h4>
+    <p>
+      The <code>&lt;track&gt;</code> element allows you to add timed text
+      tracks, such as subtitles or captions. It's a self-closing tag that points
+      to a special text file, usually in <strong>WebVTT (.vtt) format</strong>.
+    </p>
+
+    <pre><code>&lt;video controls&gt;
+  &lt;source src="video.webm" type="video/webm"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+
+  &lt;!-- English Captions for the hearing impaired --&gt;
+  &lt;track src="captions_en.vtt" kind="captions" srclang="en" label="English"&gt;
+
+  &lt;!-- Spanish Subtitles for translation --&gt;
+  &lt;track src="subtitles_es.vtt" kind="subtitles" srclang="es" label="Español"&gt;
+&lt;/video&gt;
+</code></pre>
+
+    <p><strong>Breakdown:</strong></p>
+    <ul>
+      <li><code>src</code>: Path to the .vtt file.</li>
+      <li>
+        <code>kind</code>: The type of track. Common values:
+        <ul>
+          <li>
+            captions: A direct transcription of dialogue and important sounds.
+          </li>
+          <li>subtitles: Translation of dialogue into another language.</li>
+          <li>descriptions: Audio description for visually impaired users.</li>
+        </ul>
+      </li>
+      <li>
+        <code>srclang</code>: The language of the track file (e.g., "en" for
+        English).
+      </li>
+      <li>
+        <code>label</code>: The name that appears in the video player's captions
+        menu.
+      </li>
+    </ul>
+
+    <h3>The Robust & Professional Method (<code>&lt;source&gt;</code>)</h3>
+
+    <pre><code>&lt;video width="320" height="240" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;source src="movie.ogg" type="video/ogg"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+</code></pre>
+
+    <p>
+      This method's primary purpose is
+      <strong>to ensure maximum browser compatibility.</strong>
+    </p>
+
+    <h4>The First Principle:</h4>
+    <p>Not all web browsers support the same video file formats.</p>
+
+    <ul>
+      <li>
+        <strong>.mp4 (H.264 codec):</strong> Most widely supported format today.
+      </li>
+      <li>
+        <strong>.webm (VP8/VP9 codec):</strong> Open-source format with
+        excellent support in Chrome and Firefox.
+      </li>
+      <li>
+        <strong>.ogg (Theora codec):</strong> Older open-source alternative,
+        popular before .webm.
+      </li>
+    </ul>
+
+    <h4>How It Works (The Logic):</h4>
+    <p>
+      The code gives the browser a <strong>list of options</strong>. The browser
+      will read this list from top to bottom and play the
+      <strong>first video format it understands</strong>.
+    </p>
+    <ol>
+      <li>
+        The browser first sees <code>&lt;source src="movie.mp4"&gt;</code>. If
+        it can play MP4, it loads it and ignores the rest.
+      </li>
+      <li>
+        If not, it moves to <code>&lt;source src="movie.ogg"&gt;</code> and
+        tries again.
+      </li>
+    </ol>
+
+    <h4>The Fallback Text:</h4>
+    <p>
+      The text "Your browser does not support the video tag." is only displayed
+      if the browser doesn't recognize the <code>&lt;video&gt;</code> tag.
+    </p>
+
+    <h3>Example: The Simple & Direct Method (<code>src</code> attribute)</h3>
+
+    <pre><code>&lt;video src="a.mp4" controls&gt;&lt;/video&gt;
+</code></pre>
+
+    <p>
+      <strong>How It Works:</strong> The browser receives a single direct
+      command: play <code>a.mp4</code>. If the format is unsupported, the video
+      fails.
+    </p>
+
+    <h3>Comparison Table</h3>
+    <table border="1">
+      <tr>
+        <th>Feature</th>
+        <th>Example 1 (&lt;source&gt; Method)</th>
+        <th>Example 2 (src Method)</th>
+      </tr>
+      <tr>
+        <td>Browser Compatibility</td>
+        <td>Excellent. Provides multiple formats as fallbacks.</td>
+        <td>Good, but not guaranteed. Relies on a single format.</td>
+      </tr>
+      <tr>
+        <td>Flexibility</td>
+        <td>High. Can list many different formats.</td>
+        <td>Low. Only one format is possible.</td>
+      </tr>
+      <tr>
+        <td>Simplicity</td>
+        <td>More complex. Requires multiple lines and files.</td>
+        <td>Very simple. Requires only one line.</td>
+      </tr>
+      <tr>
+        <td>Fallback for Old Browsers</td>
+        <td>
+          Excellent. Provides custom text if the <code>&lt;video&gt;</code> tag
+          fails.
+        </td>
+        <td>None.</td>
+      </tr>
+      <tr>
+        <td>Best Use Case</td>
+        <td>Public-facing websites needing full support.</td>
+        <td>Quick tests or internal projects with a single format.</td>
+      </tr>
+    </table>
+
+    <h3>Conclusion: Which One Should You Use?</h3>
+    <p>
+      For any serious, public website,
+      <strong
+        >always prefer the first method using the
+        <code>&lt;source&gt;</code> element</strong
+      >. It is industry best practice.
+    </p>
+    <p>
+      However, since .mp4 is now widely supported, many developers use the
+      simpler method for internal or non-critical projects, accepting the small
+      risk of incompatibility.
+    </p>
+
+    <h2>The Two Ways to Create the Copyright Symbol &copy;</h2>
+
+    <p>
+      You can use either the <strong>entity name</strong> or the
+      <strong>entity number</strong>. Both produce the exact same result. The
+      entity name is generally easier to remember.
+    </p>
+
+    <h3>1. Using the Entity Name (Recommended)</h3>
+    <p>This is the most common and readable method.</p>
+
+    <p><strong>Code:</strong> &amp;copy;</p>
+
+    <p><strong>Example Usage in a Footer:</strong></p>
+
+    <pre><code>&lt;footer&gt;
+    &lt;p&gt;Copyright &amp;copy; 2024 My Awesome Website. All Rights Reserved.&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+
+    <p><strong>How it renders in the browser:</strong></p>
+    <p>Copyright © 2024 My Awesome Website. All Rights Reserved.</p>
+
+    <hr />
+
+    <h3>2. Using the Entity Number</h3>
+    <p>
+      This method uses the character's numerical code. It works just as well but
+      is less descriptive.
+    </p>
+
+    <p><strong>Code:</strong> &#169;</p>
+
+    <p><strong>Example Usage:</strong></p>
+
+    <pre><code>&lt;footer&gt;
+    &lt;p&gt;Copyright &#169; 2024 My Awesome Website. All Rights Reserved.&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+
+    <p><strong>How it renders in the browser:</strong></p>
+    <p>Copyright © 2024 My Awesome Website. All Rights Reserved.</p>
+
+    <hr />
+
+    <h3>Other Common Symbol Entities You Should Know</h3>
+
+    <p>The same principle applies to other common symbols.</p>
+
+    <table border="1">
+      <tr>
+        <th>Symbol</th>
+        <th>Description</th>
+        <th>Entity Name</th>
+        <th>Entity Number</th>
+      </tr>
+      <tr>
+        <td>©</td>
+        <td>Copyright</td>
+        <td>&amp;copy;</td>
+        <td>&#169;</td>
+      </tr>
+      <tr>
+        <td>®</td>
+        <td>Registered Trademark</td>
+        <td>&amp;reg;</td>
+        <td>&#174;</td>
+      </tr>
+      <tr>
+        <td>™</td>
+        <td>Trademark</td>
+        <td>&amp;trade;</td>
+        <td>&#8482;</td>
+      </tr>
+      <tr>
+        <td>&lt;</td>
+        <td>Less-than (for showing code)</td>
+        <td>&amp;lt;</td>
+        <td>&#60;</td>
+      </tr>
+      <tr>
+        <td>&gt;</td>
+        <td>Greater-than (for showing code)</td>
+        <td>&amp;gt;</td>
+        <td>&#62;</td>
+      </tr>
+      <tr>
+        <td>&amp;</td>
+        <td>Ampersand</td>
+        <td>&amp;amp;</td>
+        <td>&#38;</td>
+      </tr>
+      <tr>
+        <td>"</td>
+        <td>Double Quote</td>
+        <td>&amp;quot;</td>
+        <td>&#34;</td>
+      </tr>
+      <tr>
+        <td>€</td>
+        <td>Euro Sign</td>
+        <td>&amp;euro;</td>
+        <td>&#8364;</td>
+      </tr>
+    </table>
+
+    <h3>Why do we need entities for &lt; and &gt;?</h3>
+    <p>
+      Because the browser would interpret &lt; and &gt; as the start or end of
+      an HTML tag. If you want to literally display the text
+      <code>&lt;p&gt;</code> on your page, you must write
+      <code>&amp;lt;p&amp;gt;</code>.
+    </p>
+  </body>
+</html>

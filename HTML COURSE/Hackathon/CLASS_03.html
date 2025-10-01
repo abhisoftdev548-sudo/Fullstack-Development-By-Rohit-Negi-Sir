@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Lists & Tables</title>
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
+  </head>
+  <body>
+    <a href="index.html"><p> &larr; Back To Home</p></a>
+    <h1>Nested Lists And Tables</h1>
+    <iframe src="https://www.youtube.com/embed/AJ4E1zf5tQs" allowfullscreen height="400px" width="700px"></iframe>
+    <h2>Nested Lists</h2>
+    <h3>What is a Nested List?</h3>
+    <p>
+      A <strong>nested list</strong> is simply a list inside another list item
+      (<code>&lt;li&gt;</code>).<br />
+      This allows you to create hierarchical or multi-level structures like
+      outlines, menus, or categories with sub-categories.
+    </p>
+    <h3>Example of real-life use cases:</h3>
+
+    <h3>👉 Example Code:</h3>
+
+    <pre>
+<code>
+&lt;ul&gt;
+  &lt;li&gt;Table of Contents
+    &lt;ol&gt;
+      &lt;li&gt;Introduction&lt;/li&gt;
+      &lt;li&gt;Chapter 1&lt;/li&gt;
+      &lt;li&gt;Chapter 2&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Navigation Menus
+    &lt;ul&gt;
+      &lt;li&gt;Home&lt;/li&gt;
+      &lt;li&gt;About
+        &lt;ul&gt;
+          &lt;li&gt;Our Team&lt;/li&gt;
+          &lt;li&gt;History&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Contact&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Categories → Sub-categories
+    &lt;ul&gt;
+      &lt;li&gt;Fruits
+        &lt;ul&gt;
+          &lt;li&gt;Apple&lt;/li&gt;
+          &lt;li&gt;Banana&lt;/li&gt;
+          &lt;li&gt;Orange&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Vegetables
+        &lt;ul&gt;
+          &lt;li&gt;Carrot&lt;/li&gt;
+          &lt;li&gt;Potato&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;/ul&gt;
+      </code>
+    </pre>
+    <div class="renderedExample">
+      
+      <h3>Rendered Example:</h3>
+      <ul>
+        <li>
+          Table of Contents
+          <ol>
+            <li>Introduction</li>
+            <li>Chapter 1</li>
+            <li>Chapter 2</li>
+          </ol>
+        </li>
+        
+        <li>
+          Navigation Menus
+          <ul>
+            <li>Home</li>
+            <li>
+              About
+              <ul>
+                <li>Our Team</li>
+                <li>History</li>
+              </ul>
+            </li>
+            <li>Contact</li>
+          </ul>
+        </li>
+        
+        <li>
+          Categories → Sub-categories
+          <ul>
+            <li>
+              Fruits
+              <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Orange</li>
+              </ul>
+            </li>
+            <li>
+              Vegetables
+              <ul>
+                <li>Carrot</li>
+                <li>Potato</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2>Tables</h2>
+    <h3>1.What is a Table in HTML?</h3>
+    <p>
+      A <strong>table</strong> in HTML is used to represent tabular data in a
+      structured way (rows and columns).<br />
+      Think of it like an Excel sheet — with headers, rows, and cells.
+    </p>
+    <p>
+       <strong>Important:</strong> Tables are only for data (NOT for webpage
+      layout).
+    </p>
+    <h3>2. Basic Structure (Semantic)</h3>
+
+    <p>
+      <code>&lt;table&gt;</code> — the whole table <br />
+      <code>&lt;caption&gt;</code> — title of the table (optional but good for
+      accessibility) <br />
+      <code>&lt;thead&gt;</code> — table head (group of header rows) <br />
+      <code>&lt;tbody&gt;</code> — table body (data rows) <br />
+      <code>&lt;tfoot&gt;</code> — table footer (summary/notes) <br />
+      <code>&lt;tr&gt;</code> — table row <br />
+      <code>&lt;th&gt;</code> — table header cell (by default bold and centered)
+      <br />
+      <code>&lt;td&gt;</code> — table data cell
+    </p>
+     <h3>3. Colspan and Rowspan</h3>
+
+  <p>
+    <code>colspan="n"</code> — this cell will span across <strong>n columns</strong>. <br>
+    <code>rowspan="n"</code> — this cell will span across <strong>n rows</strong>.
+  </p>
+  <h3>Example Code:</h3>
+  <pre>
+<code>
+&lt;table border="1"&gt;
+  &lt;caption&gt;Student Subjects and Marks&lt;/caption&gt;
+
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan="2"&gt;Name&lt;/th&gt;
+      &lt;th colspan="2"&gt;Subjects&lt;/th&gt;
+      &lt;th rowspan="2"&gt;Total&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Math&lt;/th&gt;
+      &lt;th&gt;Science&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ravi&lt;/td&gt;
+      &lt;td&gt;85&lt;/td&gt;
+      &lt;td&gt;90&lt;/td&gt;
+      &lt;td&gt;175&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;78&lt;/td&gt;
+      &lt;td&gt;92&lt;/td&gt;
+      &lt;td&gt;170&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;Class Average&lt;/td&gt;
+      &lt;td&gt;172.5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</code>
+<div class="renderedExample">
+
+  <h3>Rendered Example:</h3>
+  
+  <table border="1">
+    <caption>Student Subjects and Marks</caption>
+    
+    <thead>
+      <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="2">Subjects</th>
+        <th rowspan="2">Total</th>
+      </tr>
+      <tr>
+        <th>Math</th>
+        <th>Science</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Ravi</td>
+        <td>85</td>
+        <td>90</td>
+        <td>175</td>
+      </tr>
+      <tr>
+        <td>Alice</td>
+        <td>78</td>
+        <td>92</td>
+        <td>170</td>
+      </tr>
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <td colspan="3">Class Average</td>
+        <td>172.5</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>

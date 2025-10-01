@@ -1,0 +1,23 @@
+.container{
+    background-color: aqua;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    height: 400px;
+    width: 400px;
+    gap: 10px;
+}
+
+.first{
+    background-color: orange;
+}
+.second{
+    background-color: #dc460f;
+}
+.third{
+    background-color: blue;
+    
+}
+.fourth{
+    background-color: green;
+}

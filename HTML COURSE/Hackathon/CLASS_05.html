@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms in HTML</title>
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
+  </head>
+  <body>
+    <a href="index.html"><p>&larr; Back To Home</p></a>
+    <h1>Forms in HTML</h1>
+    <iframe src="https://www.youtube.com/embed/a4j9R_DvZ8M" allowfullscreen height="400px" width="700px"></iframe>
+    <h2>The First Principle: The Web Needs to Be a Two-Way Street</h2>
+
+    <p>
+      The fundamental truth is that a website isn't just a brochure for you to
+      read. For the web to be useful, it needs a way to
+      <strong>collect information <em>from</em> the user</strong> and send it
+      back to the server.
+    </p>
+
+    <p>
+      Without this, you couldn't log in, search for a video, buy a product, post
+      a comment, or send a message. The web would be a read-only library.
+    </p>
+
+    <h3>The Core Problem</h3>
+
+    <p>How do we create a standardized, reliable system to:</p>
+
+    <ol>
+      <li>
+        <strong>Display</strong> interactive fields for a user to fill in (text
+        boxes, checkboxes, dropdowns).
+      </li>
+      <li><strong>Package</strong> the user's data neatly.</li>
+      <li>
+        <strong>Send</strong> that package to a specific destination on a
+        server.
+      </li>
+      <li>
+        <strong>Tell</strong> the server <em>how</em> the data is being sent.
+      </li>
+    </ol>
+
+    <p>
+      The logical solution to this entire problem is the HTML
+      <strong>&lt;form&gt;</strong>.
+    </p>
+    <h2>The <code>&lt;input&gt;</code> Element: The Box for Your Stuff</h2>
+
+    <p>
+      This is the most common form tag. It's a self-closing tag that creates an
+      input field. Its behavior changes based on its
+      <code>type</code> attribute.
+    </p>
+
+    <p>The most basic type is <strong>text</strong>.</p>
+
+    <pre><code>&lt;form&gt;
+    &lt;input type="text"&gt;
+&lt;/form&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <input type="text" />
+    </form>
+</div>
+
+    <h2>The Need for Meaning - The <code>&lt;label&gt;</code></h2>
+
+    <p>
+      <strong>The Problem:</strong> We have a box, but the user has no idea what
+      they are supposed to type into it. Is it for a name? An email? A search
+      query? The box is meaningless without a description.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> We need to add a descriptive piece of text.
+      The correct HTML tag for this is the <code>&lt;label&gt;</code>. It's a
+      tag specifically designed to be the title for a form field.
+    </p>
+
+    <p><strong>Let's add a label:</strong></p>
+
+    <pre><code>&lt;label&gt;First Name:&lt;/label&gt;
+&lt;input type="text"&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <label>First Name:</label>
+        <input type="text" />
+    </form>
+</div>
+
+    <p>
+      <strong>Result:</strong> This is better! Now the user sees "First Name:"
+      next to the box and knows what to type. But the
+      <code>&lt;label&gt;</code> and the <code>&lt;input&gt;</code> are still
+      two completely separate, unrelated things. The browser doesn't know they
+      belong together.
+    </p>
+    <h2>The Need for Connection - <code>id</code> and <code>for</code></h2>
+
+    <p>
+      <strong>The Problem:</strong> How can we create a direct, unbreakable link
+      between the label "First Name:" and its specific input box? We need this
+      for two reasons:
+    </p>
+
+    <ol>
+      <li>
+        <strong>Usability:</strong> It would be great if a user could click on
+        the <em>text</em> of the label to activate the input box.
+      </li>
+      <li>
+        <strong>Accessibility:</strong> Screen readers for visually impaired
+        users need to know which label describes which input so they can
+        announce it correctly.
+      </li>
+    </ol>
+
+    <p><strong>The Solution:</strong> We need a unique naming system.</p>
+
+    <ol>
+      <li>
+        First, we give our input box a unique name that no other element on the
+        page has. The attribute for a unique name is <strong>id</strong>. Let's
+        give it an id of <code>firstName</code>.
+      </li>
+      <li>
+        Next, we tell the label which element it is <strong>for</strong>. The
+        <code>for</code> attribute on the label must match the
+        <code>id</code> of the input.
+      </li>
+    </ol>
+
+    <p><strong>Let's connect them:</strong></p>
+
+    <pre><code>&lt;label for="firstName"&gt;First Name:&lt;/label&gt;
+&lt;input type="text" id="firstName"&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" />
+    </form>
+</div>
+    <p>
+      <strong>Result:</strong> We have now created a powerful, explicit
+      connection.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Try it:</strong> If you click on the text "First Name:", your
+        cursor will magically jump into the text box.
+      </li>
+      <li>
+        <strong>Behind the scenes:</strong> A screen reader will now announce,
+        "First Name, edit text" when the user focuses on the input box. The two
+        elements are now a true pair.
+      </li>
+    </ul>
+
+    <h2>
+      The Need for Submission - The <code>&lt;form&gt;</code> and
+      <code>submit</code>
+    </h2>
+
+    <p>
+      <strong>The Problem:</strong> We have a field for the user to fill out,
+      but we have no way for them to actually <em>submit</em> this information.
+      We need a container for our fields and a "Go" button.
+    </p>
+
+    <p><strong>The Solution:</strong></p>
+
+    <ol>
+      <li>
+        We wrap all our form fields in a <code>&lt;form&gt;</code> tag. This tag
+        acts as the main container that tells the browser, "Everything inside
+        here is part of one single submission."
+      </li>
+      <li>
+        We add a button that tells the form to submit. The simplest way is
+        <code>&lt;input type="submit"&gt;</code>.
+      </li>
+    </ol>
+
+    <p><strong>Let's build the form structure:</strong></p>
+
+    <pre><code>&lt;form&gt;
+    &lt;label for="firstName"&gt;First Name:&lt;/label&gt;
+    &lt;input type="text" id="firstName"&gt;
+
+    &lt;br&gt;&lt;br&gt; &lt;!-- We'll use simple line breaks for spacing for now --&gt;
+
+    &lt;label for="lastName"&gt;Last Name:&lt;/label&gt;
+    &lt;input type="text" id="lastName"&gt;
+
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" />
+        <br /><br />
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" />
+        <br /><br />
+        <input type="submit" />
+    </form>
+</div>
+
+    <p>
+      <strong>Result:</strong> We now have a complete visual form with two
+      fields and a submit button. When you click the button, the page reloads,
+      but the data doesn't go anywhere yet.
+    </p>
+
+    <h2>The Need for Data Identification - The <code>name</code> Attribute</h2>
+
+    <p>
+      <strong>The Problem:</strong> When the form is submitted, the browser
+      needs to package the data to send to a server. How does it label the data?
+      If a user types "Arjun" in the first box, how does the server know that
+      "Arjun" is the <code>firstName</code>? The <code>id</code> attribute is
+      only for use <em>within</em> the page; it is not sent to the server.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> We need another attribute whose sole
+      purpose is to be the <strong>"data label"</strong> or the
+      <strong>"key"</strong> for the submitted value. This is the
+      <strong><code>name</code></strong> attribute.
+    </p>
+
+    <p><strong>Let's add names to our inputs:</strong></p>
+
+    <pre><code>&lt;form&gt;
+    &lt;label for="firstName"&gt;First Name:&lt;/label&gt;
+    &lt;input type="text" id="firstName" name="firstName"&gt;
+
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;label for="lastName"&gt;Last Name:&lt;/label&gt;
+    &lt;input type="text" id="lastName" name="lastName"&gt;
+
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" />
+        
+        <br /><br />
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" />
+        
+        <br /><br />
+        
+        <input type="submit" />
+    </form>
+</div>
+    <p>
+      <strong>Note:</strong>To see some difference, check the website URL before
+      and after submitting the form.
+    </p>
+    <p>
+      <strong>Result:</strong> Now we have a truly functional form, ready to
+      send meaningful data. When submitted, the browser will create a package
+      that looks like this:
+    </p>
+
+    <ul>
+      <li><code>firstName</code> = (whatever the user typed)</li>
+      <li><code>lastName</code> = (whatever the user typed)</li>
+    </ul>
+
+    <h2>The Need for "Select One" - Radio Buttons</h2>
+
+    <p>
+      <strong>The Problem:</strong> What if you want to ask a question where the
+      user can only choose <strong>one option</strong> from a predefined list?
+      For example, "What is your gender?" or "What is your T-shirt size (Small,
+      Medium, Large)?" A text box is a bad solution—users could type anything
+      ("Med", "M", "medium"), making the data inconsistent.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> We need an input type where selecting one
+      option automatically de-selects all others. This is the
+      <strong>radio button</strong>: <code>&lt;input type="radio"&gt;</code>.
+    </p>
+
+    <p>
+      This introduces a new rule. How does the browser know which radio buttons
+      belong to the same question?
+    </p>
+
+    <p>
+      <strong>The Rule:</strong> All radio buttons in a single group
+      <strong>must share the same <code>name</code> attribute</strong>. The
+      <code>name</code> acts as the group identifier.
+    </p>
+
+    <p><strong>Let's build a T-shirt size selector:</strong></p>
+
+    <pre><code>&lt;!-- We'll add this inside our existing &lt;form&gt; --&gt;
+
+&lt;label&gt;T-Shirt Size:&lt;/label&gt;
+&lt;br&gt;
+
+&lt;!-- All three are part of the "shirtSize" group --&gt;
+&lt;input type="radio" id="sizeS" name="shirtSize" value="small"&gt;
+&lt;label for="sizeS"&gt;Small&lt;/label&gt;
+&lt;br&gt;
+
+&lt;input type="radio" id="sizeM" name="shirtSize" value="medium"&gt;
+&lt;label for="sizeM"&gt;Medium&lt;/label&gt;
+&lt;br&gt;
+
+&lt;input type="radio" id="sizeL" name="shirtSize" value="large"&gt;
+&lt;label for="sizeL"&gt;Large&lt;/label&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <label>T-Shirt size</label>
+        <br />
+        <input type="radio" id="sizeS" name="shirtSize" value="small" />
+        <label for="sizeS">Small</label>
+        <br />
+        <input type="radio" id="sizeM" name="shirtSize" value="medium" />
+        <label for="sizeM">Medium</label>
+        <br />
+        <input type="radio" id="sizeL" name="shirtSize" value="large" />
+        <label for="sizeL">Large</label>
+        <br /><br />
+    </form>
+</div>
+
+    <p><strong>Let's break down the new attributes:</strong></p>
+
+    <ul>
+      <li><code>type="radio"</code>: Creates the circular radio button.</li>
+      <li>
+        <code>name="shirtSize"</code>: This is the
+        <strong>critical</strong> part. Because all three have the same name,
+        the browser knows they are a single group and will only let you select
+        one.
+      </li>
+      <li>
+        <code>id="sizeS"</code>: Each input still needs a unique
+        <code>id</code> so its specific label can connect to it.
+      </li>
+      <li>
+        <code>value="small"</code>: This is the actual data that will be sent to
+        the server if this option is selected. If the user clicks "Small", the
+        form will send <code>shirtSize=small</code>. Without the
+        <code>value</code>, the data would be meaningless.
+      </li>
+    </ul>
+
+    <h2>The Need for "Select Many" - Checkboxes</h2>
+
+    <p>
+      <strong>The Problem:</strong> Now, what if you want to ask a question
+      where the user can choose <strong>multiple options</strong>? For example,
+      "Which toppings would you like on your pizza?" A radio button won't work,
+      because you can only select one.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> We need an input type that allows for
+      multiple selections. This is the <strong>checkbox</strong>:
+      <code>&lt;input type="checkbox"&gt;</code>.
+    </p>
+
+    <p>
+      Checkboxes that are part of the same question should also share the same
+      <code>name</code>. This tells the server that all the selected values
+      belong to the same category ("toppings").
+    </p>
+
+    <p><strong>Let's build a toppings selector:</strong></p>
+
+    <pre><code>&lt;label&gt;Pizza Toppings:&lt;/label&gt;
+&lt;br&gt;
+
+&lt;input type="checkbox" id="toppingPep" name="toppings" value="pepperoni"&gt;
+&lt;label for="toppingPep"&gt;Pepperoni&lt;/label&gt;
+&lt;br&gt;
+
+&lt;input type="checkbox" id="toppingMush" name="toppings" value="mushrooms"&gt;
+&lt;label for="toppingMush"&gt;Mushrooms&lt;/label&gt;
+&lt;br&gt;
+
+&lt;input type="checkbox" id="toppingOni" name="toppings" value="onions"&gt;
+&lt;label for="toppingOni"&gt;Onions&lt;/label&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <form>
+        <label>Pizza Toppings</label>
+        <br />
+        <input
+        type="checkbox"
+        id="toppingPep"
+        name="toppings"
+        value="pepperoni"
+        />
+        <label for="toppingPep">Pepperoni</label>
+        <br />
+        <input
+        type="checkbox"
+        id="toppingMush"
+        name="toppings"
+        value="mushrooms"
+        />
+        <label for="toppingMush">Mushrooms</label>
+        <br />
+        <input type="checkbox" id="toppingOni" name="toppings" value="onions" />
+        <label for="toppingOni">Onions</label>
+        <br /><br />
+    </form>
+</div>
+
+    <p><strong>Breakdown:</strong></p>
+
+    <ul>
+      <li><code>type="checkbox"</code>: Creates the square checkbox.</li>
+      <li>
+        <code>name="toppings"</code>: All three share this name, telling the
+        server they are all "toppings".
+      </li>
+      <li><code>id="toppingPep"</code>: Each has a unique id for its label.</li>
+      <li>
+        <code>value="pepperoni"</code>: Each has a unique value to identify
+        which topping was chosen.
+      </li>
+    </ul>
+
+    <p>
+      <strong>Result:</strong> You now have three checkboxes, and you can click
+      and select as many as you want.
+    </p>
+
+    <h2>A Better Button - The <code>&lt;button&gt;</code> Element</h2>
+
+    <p>
+      <strong>The Problem:</strong> Our
+      <code>&lt;input type="submit"&gt;</code> works, but it's very limited. You
+      can only put plain text in it using the <code>value</code> attribute. What
+      if you want a button with an image, or with bold text?
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> Use the
+      <code>&lt;button&gt;</code> element. It's a container tag, meaning it has
+      an opening and closing tag. This allows you to put other HTML elements
+      <em>inside</em> it.
+    </p>
+
+    <p><strong>Let's replace our old submit button:</strong></p>
+
+    <pre><code>&lt;!-- OLD WAY --&gt;
+&lt;input type="submit" value="Submit Your Order"&gt;
+
+&lt;!-- NEW, BETTER WAY --&gt;
+&lt;button type="submit"&gt;
+    &lt;strong&gt;Submit&lt;/strong&gt; Your Order
+&lt;/button&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    
+    <input type="submit" value="Submit Your Order" />
+    <button type="submit"><strong>Submit</strong> Your Order</button>
+</div>
+    <p><strong>Breakdown:</strong></p>
+    
+    <ul>
+      <li><code>&lt;button&gt;</code>: The container for the button.</li>
+      <li>
+        <code>type="submit"</code>: This is very important. This attribute tells
+        the button to act as a form submit button. (It can also be
+        <code>type="button"</code> for JavaScript or <code>type="reset"</code>).
+      </li>
+      <li>
+        <code>&lt;strong&gt;Submit&lt;/strong&gt;</code>: We can now put other
+        HTML tags, like <code>&lt;strong&gt;</code> or even an
+        <code>&lt;img&gt;</code>, right inside our button!
+      </li>
+    </ul>
+
+    <p>
+      <strong>Result:</strong> A more flexible and powerful button that has the
+      exact same submit functionality. From now on, we'll prefer
+      <code>&lt;button type="submit"&gt;</code>.
+    </p>
+
+    <h2>The Need for Long-Form Text - <code>&lt;textarea&gt;</code></h2>
+
+    <p>
+      <strong>The Problem:</strong> Our
+      <code>&lt;input type="text"&gt;</code> is great for single lines of text
+      like a name, but it's terrible for longer input, like a user comment or a
+      shipping address. The text just scrolls sideways and becomes unreadable.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> We need a dedicated element for multi-line
+      text input. This is the <strong>&lt;textarea&gt;</strong> tag.
+    </p>
+
+    <p>
+      Unlike <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> is a
+      container tag (it has an opening and closing tag). It's also linked to a
+      <code>&lt;label&gt;</code> using the same <code>for</code> and
+      <code>id</code> pattern.
+    </p>
+
+    <p><strong>Let's add a comments box:</strong></p>
+
+    <pre><code>&lt;label for="comments"&gt;Any special instructions?&lt;/label&gt;
+&lt;br&gt;
+&lt;textarea id="comments" name="comments" rows="4" cols="50"&gt;&lt;/textarea&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+<div class="renderedExample">
+
+    <h3>Rendered example:</h3>
+    <label for="comments">Any special instructions?</label>
+    <br /><textarea name="comments" id="comments" rows="4" cols="50"></textarea>
+    <br /><br />
+</div>
+    <ul>
+        <li>
+        <code>rows="4"</code>: This attribute controls the visible height of the
+        text area, suggesting it should be about 4 lines of text tall.
+      </li>
+      <li>
+        <code>cols="50"</code>: This controls the visible width, suggesting it
+        should be about 50 characters wide.
+      </li>
+    </ul>
+
+    <h2>
+      The Need for Many Options - The Dropdown (<code>&lt;select&gt;</code>)
+    </h2>
+
+    <p>
+      <strong>The Problem:</strong> Radio buttons are good for 3-4 options, but
+      what if you need the user to select one option from a very long list, like
+      their country? A list of 200 radio buttons would make the page incredibly
+      long and difficult to use.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> A dropdown menu. It compactly hides all the
+      options until the user clicks on it. This is created with the
+      <strong>&lt;select&gt;</strong> tag, which contains multiple
+      <strong>&lt;option&gt;</strong> tags.
+    </p>
+
+    <p><strong>Let's build a country selector:</strong></p>
+
+    <pre><code>&lt;label for="country"&gt;Country:&lt;/label&gt;
+&lt;br&gt;
+&lt;select id="country" name="country"&gt;
+    &lt;option value=""&gt;--Please choose an option--&lt;/option&gt;
+    &lt;option value="in"&gt;India&lt;/option&gt;
+    &lt;option value="us"&gt;USA&lt;/option&gt;
+    &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+    &lt;option value="au"&gt;Australia&lt;/option&gt;
+&lt;/select&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+<div class="renderedExample">
+    <h3>Rendered example:</h3>
+      <label for="country">Country:</label>
+      <br />
+      <select id="country" name="country">
+        <option value="">--Please choose an option--</option>
+        <option value="in">India</option>
+        <option value="us">USA</option>
+        <option value="uk">United Kingdom</option>
+        <option value="au">Australia</option>
+      </select>
+      <br /><br />
+    </div>
+
+    <p><strong>Breakdown:</strong></p>
+
+    <ul>
+      <li>
+        <strong>&lt;select&gt;</strong>: This is the main container for the
+        dropdown. The <code>id</code> and <code>name</code> attributes go on
+        this tag.
+      </li>
+      <li>
+        <strong>&lt;option&gt;</strong>: Each individual choice in the dropdown
+        is an <code>&lt;option&gt;</code> tag.
+      </li>
+      <li>
+        <strong>value Attribute on <code>&lt;option&gt;</code></strong
+        >: This is the data that gets sent to the server. The text between the
+        tags (India) is what the user sees.
+      </li>
+    </ul>
+
+    <h2>More Specialized Inputs (HTML5 Power-ups)</h2>
+
+    <p>
+      HTML5 introduced many new <code>type</code> attributes for
+      <code>&lt;input&gt;</code> to make forms smarter and more user-friendly.
+    </p>
+
+    <h3><code>type="password"</code></h3>
+
+    <p>
+      <strong>The Problem:</strong> We need a text field for sensitive
+      information that shouldn't be visible on the screen as the user types.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> <code>&lt;input type="password"&gt;</code>.
+      It masks the input with dots or asterisks.
+    </p>
+
+    <pre><code>&lt;label for="userPass"&gt;Password:&lt;/label&gt;
+&lt;br&gt;
+&lt;input type="password" id="userPass" name="userPassword"&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+    <div class="renderedExample">
+      <h4>Rendered example:</h4>
+      <label for="userPass">Password:</label>
+      <br />
+      <input type="password" id="userPass" name="userPassword" />
+      <br /><br />
+    </div>
+    <h3>
+      <code>type="number"</code> with <code>min</code> and <code>max</code>
+    </h3>
+
+    <p>
+      <strong>The Problem:</strong> We want the user to enter a number, like
+      their age, but we want to restrict the input to a valid range. We also
+      want mobile browsers to show a number keypad.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong>
+      <code>&lt;input type="number"&gt;</code> with <code>min</code> and
+      <code>max</code> attributes for validation.
+    </p>
+
+    <pre><code>&lt;label for="userAge"&gt;Age (18-99):&lt;/label&gt;
+&lt;br&gt;
+&lt;input type="number" id="userAge" name="age" min="18" max="99"&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+    <div class="renderedExample">
+      <h4>Rendered example:</h4>
+      <label for="userAge">Age (18-99):</label>
+      <br />
+      <input type="number" id="userAge" name="age" min="18" max="99" />
+      <br /><br />
+    </div>
+
+    <p>
+      <strong>Result:</strong> This creates a number field, often with small
+      up/down arrows. The browser will prevent the form from submitting if the
+      user enters a number outside the 18-99 range.
+    </p>
+
+    <h3><code>type="date"</code></h3>
+
+    <p>
+      <strong>The Problem:</strong> Asking users to type a date in a specific
+      format (e.g., MM/DD/YYYY) is prone to errors.
+    </p>
+
+    <p>
+      <strong>The Solution:</strong> <code>&lt;input type="date"&gt;</code>.
+      Most browsers will display a user-friendly calendar date picker.
+    </p>
+
+    <pre><code>&lt;label for="birthDate"&gt;Date of Birth:&lt;/label&gt;
+&lt;br&gt;
+&lt;input type="date" id="birthDate" name="dob"&gt;
+&lt;br&gt;&lt;br&gt;
+</code></pre>
+    <div class="renderedExample">
+      <h4>Rendered example:</h4>
+      <label for="birthDate">Date of Birth:</label>
+      <br />
+      <input type="date" id="birthDate" name="dob" />
+      <br /><br />
+    </div>
+    <h2>Other Useful Types for Homework</h2>
+
+    <ul>
+      <li>
+        <strong><code>type="color"</code></strong
+        >: Displays a color picker.
+      </li>
+      <li>
+        <strong><code>type="range"</code></strong
+        >: Creates a slider control.
+      </li>
+      <li>
+        <strong><code>type="file"</code></strong
+        >: Allows the user to upload a file from their device.
+      </li>
+      <li>
+        <strong><code>required</code></strong
+        >: Ensures the field must be filled before the form can be submitted.
+      </li>
+      <li>
+        <strong><code>placeholder</code></strong
+        >: Provides a hint inside the input box until the user types something.
+      </li>
+    </ul>
+      <h2>Summary by Images</h2>
+    <img src="Images/class_5-content-img.svg" width="700px" alt="summary image" />
+  </body>
+</html>

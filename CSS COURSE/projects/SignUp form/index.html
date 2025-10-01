@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="signupForm">
+        <form>
+            <h1>Sign Up</h1>
+            <div class="personalInfo">
+                <div class="firstName first">
+                    <label for="firstName ">First Namee:</label>
+                    <input type="text" id="firstname">
+                </div>
+                <div class="lastName second">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName">
+                </div>
+            </div>
+            <div class="contact">
+                <div class="email first">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="mobile second">
+                    <label for="mobile">Mobile:</label>
+                    <input type="tel" id="mobile">
+                </div>
+
+            </div>
+            <div class="varification ">
+                <div class="password first">
+                    <label for="pass">Password:</label>
+                    <input type="password">
+                </div>
+                <div class="confirmPassword second">
+                    <label for="confirmPass">Confirm Password:</label>
+                    <input type="password">
+                </div>
+            </div>
+            <div class="location">
+                <div class="first">
+
+                    <label for="country">label</label>
+                    <select name="country" id="country" class="country">
+                        <option value="india">India</option>
+                        <option value="usa">USA</option>
+                        <option value="russia">Russia</option>
+                    </select>
+                </div>
+                <div class="second">
+                    <label for="state">State:</label>
+                    <select name="state" id="state">
+                        <option value="mp">Madhya Pradesh</option>
+                        <option value="up">Uttar Pradesh</option>
+                        <option value="mumbai">Mumbai</option>
+                    </select>
+                </div>
+                <div class="third">
+                    <label for="district">District:</label>
+                    <select name="district" id="district">
+                        <option value="chhatarpur">Chhatarpur</option>
+                        <option value="nagoun">Nagoun</option>
+                    </select>
+                </div>
+                <div class="fourth">
+                    <label for="add">Address:</label>
+                    <input type="text" id="add">
+                </div>
+
+            </div>
+            <div class="button">
+
+                <Button type="submit">Submit</Button>
+            </div>
+                <p class="signinOption">Already have an account? <a href="signin.html">SignIn</a></p>
+        </form>
+    </div>
+</body>
+</html>

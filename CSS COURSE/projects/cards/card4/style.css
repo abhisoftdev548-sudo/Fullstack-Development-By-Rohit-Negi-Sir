@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ body{
+    overflow: hidden;
+    background: #1abc9c;
+}
+.container{
+    max-width: 440px;
+    padding: 0 20px;
+    margin: 170px auto;
+}
+.wrapper{
+    width: 380px;
+    background: #fff;
+    border-radius: 5px;
+}
+.title{
+    line-height: 90px;
+    background: #169a85;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+}
+.wrapper form{
+    padding: 30px 25px 25px 25px;
+
+}
+.row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.row input{
+    height: 100%;
+    width: 100%;
+    padding-left: 60px;
+    outline: none;
+    
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.row input:focus{
+    border-color: #169a85;
+    box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25);
+}
+.row i{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    background: #16a085;
+    border: 1px solid #169a85;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+
+}
+
+.button input{
+    padding-left: 0px;
+    background: #169a85;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    border: 1px solid #169a85;
+    cursor: pointer;
+}
+.button input:hover{
+    background: #12876f;
+}
+.pass{
+    margin: -8px 0 20px 0;
+}
+.pass a {
+    color: #169a85;
+    text-decoration: none;
+    font-size: 17px;
+}
+.pass a:hover{
+    text-decoration: underline;
+}
+.signup-link{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px; 
+}
+.signup-link a{
+    color: #169a85;
+    text-decoration: none;
+}
+.signup-link a:hover{
+    text-decoration: underline;
+}
