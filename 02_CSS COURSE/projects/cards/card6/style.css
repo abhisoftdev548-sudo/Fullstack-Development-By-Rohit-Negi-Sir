@@ -1,0 +1,107 @@
+/* Base styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container with perspective */
+.card-container {
+  perspective: 1000px;
+}
+
+/* Card base */
+.flip-card {
+  width: 320px;
+  height: 420px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Faces */
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Front */
+.flip-front {
+  background: linear-gradient(135deg, #111, #222);
+  color: #fff;
+}
+
+.course-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.flip-card:hover .course-img {
+  transform: scale(1.05);
+}
+
+/* Back */
+.flip-back {
+  background: linear-gradient(135deg, #ff0000, #660000);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.flip-back ul {
+  list-style: none;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+
+.flip-back li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.flip-back button {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.flip-back button:hover {
+  background: #000;
+  color: #fff;
+}

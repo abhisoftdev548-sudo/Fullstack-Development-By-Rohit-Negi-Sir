@@ -1,0 +1,1533 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  font-family: "Ghost Theory", sans-serif;
+}
+
+/*mobile styles */
+body {
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+.content {
+  background: url(redbg.jpeg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.hero-h-content, .starting-soon, .card-soon, .go-back {
+  display: none;
+}
+
+button, span {
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: "Ghost Theory", sans-serif;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* navbar */
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 15px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  animation: showing 2s forwards 1;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Creepster", cursive;
+  text-align: center;
+}
+
+.logo-span {
+  color: red;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  list-style: none;
+  font-size: 16px;
+  font-family: "Ghost Theory", sans-serif;
+}
+
+.get-started, .go-back {
+  background: red;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  font-family: "Ghost Theory", sans-serif;
+}
+
+/* hero section */
+.hero-section {
+  background: url('herobg.jpeg') no-repeat;
+  width: 100%;
+  height: 300px;
+  margin-top: 120px;
+  background-size: cover;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  animation: showing 2s forwards 1;
+}
+
+@keyframes showing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.heroimg img {
+  max-height: 300px;
+  width: auto;
+}
+
+.heroimg {
+  z-index: 30000;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
+  animation: riseup 6s forwards 1;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes riseup {
+  0% {
+    bottom: -200px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.heroimg2 {
+  display: none;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  z-index: 4000000000;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  transition: all 0.3s ease-in-out;
+  animation: risingbtn 4s forwards 1;
+}
+
+@keyframes risingbtn {
+  0% {
+    bottom: -50px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+.hero-get {
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.not-intrested {
+  padding: 10px 20px;
+  color: red;
+  font-weight: 500;
+  width: 100%;
+  max-width: 200px;
+}
+
+
+
+
+
+/* about section */
+.about {
+  margin: 30px 10px;
+  position: relative;
+}
+
+#about {
+  font-weight: 900;
+  font-size: 36px;
+  font-style: oblique;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.about-course {
+  background-size: cover;
+  margin: 30px 10px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+  text-wrap: wrap;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.about-course .text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.about-img img {
+  height: 200px;
+  border: 2px solid white;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-img img:hover {
+  transform: rotateZ(-5deg) scale(1.1);
+  border: 2px solid red;
+  box-shadow: 0px 0px 10px 10px red, 0px 0px 10px 10px red;
+}
+
+.coder-link {
+  text-decoration: underline;
+  font-family: "Ghost Theory", sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+hr {
+  background: white;
+  height: 2px;
+}
+
+.about-rns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 50px;
+  padding: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+.rnsimg {
+  width: fit-content;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.rns-img {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border: 5px solid white;
+  transition: all 0.3s ease-in-out;
+  object-fit: cover;
+}
+
+.line {
+  position: absolute;
+  height: 3px;
+  width: 6px;
+  opacity: 0;
+  background: rgb(210, 2, 2);
+  border-radius: 15px;
+}
+
+.line1 {
+  top: -2px;
+  left: 50%;
+}
+
+.line2 {
+  top: 2px;
+  left: 35%;
+}
+
+.line3 {
+  top: 2px;
+  left: 65%;
+}
+
+.line4 {
+  top: 30px;
+  left: 20%;
+}
+
+.line5 {
+  top: 30px;
+  left: 80%;
+}
+
+.rnsimg:hover .rns-img {
+  border-color: red;
+}
+
+.rnsimg:hover .line1,
+.rnsimg:hover .line2,
+.rnsimg:hover .line3,
+.rnsimg:hover .line4,
+.rnsimg:hover .line5 {
+  height: 200px;
+  opacity: 1;
+}
+
+.rns-name {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+}
+
+.rns-post span,
+.about-span {
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.post-span1,
+.about-span {
+  background: rgba(0, 0, 0, 0.877);
+  color: white;
+}
+
+.post-span2 {
+  background: rgba(255, 0, 0, 0.79);
+}
+
+.rns-summary {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* courses section */
+.courses {
+  padding: 20px 10px;
+  margin-bottom: 50px;
+}
+
+#courses {
+  font-size: 36px;
+  margin: 30px 10px;
+  text-align: center;
+}
+
+.courses-cards-container {
+  padding: 0px 10px;
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-card {
+  height: auto;
+  min-height: 400px;
+  perspective: 1000px;
+  width: 100%;
+  max-width: 350px;
+  font-family: 'Ghost Theory', sans-serif;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.course-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.frontface,
+.backface {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 2px solid white;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4CMOqalbZ5lVMZoPLU2YqCqJrZ0ZFVi0Adg&s) no-repeat;
+  background-size: cover;
+}
+
+.frontface {
+  color: #fff;
+}
+
+.backface {
+  justify-content: space-between;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.course-image {
+  width: 100%;
+  height: 60%;
+}
+
+.card1-img {
+  background: url("DSA.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.card2-img {
+  background: url("ai.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  max-width: 100%;
+  margin: 20px;
+}
+
+.course-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.beginner {
+  padding: 4px 10px;
+  background: red;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.comingsoon {
+  padding: 4px 10px;
+  border-radius: 15px;
+  background: #313131;
+  font-size: 12px;
+}
+
+.course-name {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.course-provider,
+.course-discription {
+  color: rgba(255, 255, 255, 0.586);
+  font-size: 14px;
+}
+
+.course-content {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.course-content span {
+  padding: 4px 8px;
+  background: #101010;
+  border-radius: 15px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-family: "Ghost Theory", sans-serif;
+  display: inline-block;
+  font-size: 11px;
+}
+
+.upside {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.downside {
+  width: 100%;
+  border-top: 2px solid red;
+  padding-top: 10px;
+}
+
+.downside button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: red;
+  font-family: "Ghost Theory", sans-serif;
+  outline: none;
+  border: none;
+}
+
+.hr2 {
+  width: 90%;
+  margin: auto;
+}
+
+/* footer */
+footer {
+  margin: 30px 10px;
+  padding: 20px 5px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 30px;
+  padding: 20px 10px;
+  margin: 0px 5px;
+}
+
+.footer-box {
+  min-width: 150px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: rgba(255, 255, 255, 0.664);
+  font-family: "Ghost Theory", sans-serif;
+  text-align: center;
+}
+
+.footer-box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Ghost Theory", sans-serif;
+}
+
+.footer-box ul li, li a {
+  font-family: "Ghost Theory", sans-serif;
+  color: rgba(255, 255, 255, 0.664);
+}
+
+.footer-box h2 {
+  color: white;
+  font-family: "Ghost Theory", sans-serif;
+}
+
+.social a {
+  padding: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1d1d1d59;
+  text-align: center;
+}
+
+.footer-foot {
+  margin: 20px 10px;
+  text-align: center;
+
+
+
+
+
+
+}/* horrar eyes  */
+
+.horror-eyes {
+  display: none;
+  position: fixed;
+  top: 120px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 35000; 
+  width: 100%;
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  pointer-events: none;
+}
+
+
+.eye {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  background: radial-gradient(circle at 50% 50%, #ff1e1e 0%, #700000 70%, #200000 100%);
+  box-shadow: 0 0 15px 4px rgba(255, 0, 0, 0.3), inset 0 0 12px rgba(0, 0, 0, 0.8);
+  clip-path: path("M0,25 Q50,0 100,25 Q50,50 0,25 Z");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: eye-float 4s ease-in-out infinite;
+}
+
+
+.eye.right {
+  transform: scaleX(-1);
+}
+
+
+.iris {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 35% 30%, rgba(255,180,180,1) 0%, rgba(255,50,50,1) 40%, rgba(120,0,0,1) 70%, #000 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 50px 10px rgba(255,0,0,0.4), inset 0 0 12px rgba(0,0,0,0.6);
+  animation: iris-glow 3s infinite alternate;
+  overflow: hidden;
+}
+
+
+.pupil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(180deg, #000, #220000);
+  border-radius: 8px / 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px red;
+  animation: pupil-pulse 2s infinite alternate;
+}
+
+
+.iris::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 10px;
+  height: 8px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: reflection-sparkle 4s infinite;
+}
+
+
+.lid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #000, #1a0000);
+  clip-path: path("M0,25 Q50,0 100,25 Q50,50 0,25 Z");
+  transform-origin: top;
+  animation: eye-blink 8s ease-in-out infinite;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+
+.eye::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 70%;
+  height: 6px;
+  background: radial-gradient(ellipse at center, rgba(255,0,0,0.4), transparent);
+  transform: translateX(-50%);
+  filter: blur(3px);
+  animation: shadow-pulse 3s infinite alternate;
+}
+
+
+@keyframes eye-float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-3px) rotate(1deg); 
+  }
+  50% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(2px) rotate(-1deg); 
+  }
+}
+
+@keyframes iris-glow {
+  0% { 
+    box-shadow: 0 0 15px 3px rgba(255,0,0,0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 25px 8px rgba(255,0,0,0.6);
+    transform: scale(1.05);
+  }
+  100% { 
+    box-shadow: 0 0 15px 3px rgba(255,0,0,0.4);
+    transform: scale(1);
+  }
+}
+
+@keyframes pupil-pulse {
+  0%, 100% { 
+    height: 30px;
+    box-shadow: 0 0 8px red;
+  }
+  50% { 
+    height: 35px;
+    box-shadow: 0 0 12px #ff4444;
+  }
+}
+
+@keyframes eye-blink {
+  0%, 92% { 
+    transform: scaleY(0);
+    opacity: 0.9;
+  }
+  93%, 95% { 
+    transform: scaleY(1);
+    opacity: 0.9;
+  }
+  96%, 100% { 
+    transform: scaleY(0);
+    opacity: 0.9;
+  }
+}
+
+@keyframes reflection-sparkle {
+  0%, 80% { 
+    opacity: 0.9;
+    transform: translate(0, 0);
+  }
+  85% { 
+    opacity: 1;
+    transform: translate(1px, -1px);
+  }
+  90% { 
+    opacity: 0.9;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes shadow-pulse {
+  0% { 
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* eyes when #not-intrested is checked */
+#not-intrested:checked ~ .wrapper .horror-eyes {
+  display: flex;
+  animation: eyes-appear 1s ease-out;
+}
+
+@keyframes eyes-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+
+/* horrar effect for not intrested */
+
+
+
+#not-intrested:checked ~ .wrapper .content,
+#not-intrested:checked ~ .wrapper .content * {
+  font-family: "Creepster", cursive !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+#not-intrested:checked ~ .wrapper .content {
+  animation: horrorBlink 2s infinite alternate;
+}
+
+@keyframes horrorBlink {
+  0%, 40% {
+    color: white;
+    filter: brightness(1) contrast(1);
+  }
+  41%, 45% {
+    color: red;
+    filter: brightness(1.3) contrast(1.5);
+  }
+  46%, 85% {
+    color: white;
+    filter: brightness(1) contrast(1);
+  }
+  86%, 100% {
+    color: red;
+    filter: brightness(1.3) contrast(1.5);
+  }
+}
+
+
+#not-intrested:checked ~ .wrapper .content * {
+  animation: textFlicker 1.5s infinite alternate;
+}
+
+@keyframes textFlicker {
+  0%, 18%, 20%, 22%, 24%, 53%, 55%, 57%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 4px #fff,
+      0 0 8px #fff,
+      0 0 12px #ff0000,
+      0 0 16px #ff0000,
+      0 0 20px #ff0000;
+  }
+  19%, 21%, 23%, 54%, 56% {
+    opacity: 0.7;
+    text-shadow: 
+      0 0 2px #fff,
+      0 0 4px #ff0000,
+      0 0 6px #ff0000;
+  }
+}
+
+
+
+
+
+
+/* horrar effect for logo */
+#not-intrested:checked ~ .wrapper .content .logo-text {
+  animation: logoHorror 3s infinite alternate;
+}
+
+@keyframes logoHorror {
+  0%, 60% {
+    color: white;
+    text-shadow: 2px 2px 0px red;
+  }
+  61%, 100% {
+    color: red;
+    text-shadow: 3px 3px 0px black, 0 0 15px red, 0 0 25px red;
+  }
+}
+
+#not-intrested:checked ~ .wrapper .content .logo-span {
+  animation: logoSpanHorror 2.5s infinite alternate;
+}
+
+@keyframes logoSpanHorror {
+  0%, 35% {
+    color: red;
+    text-shadow: 0 0 8px #ff0000;
+  }
+  36%, 100% {
+    color: #8b0000;
+    text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
+  }
+}
+
+/* horror button effects for all buttons */
+#not-intrested:checked ~ .wrapper .content button {
+  animation: buttonHorror 1.5s infinite alternate;
+  background: linear-gradient(45deg, #8b0000, #ff0000) !important;
+  border: 2px solid #ff0000 !important;
+  color: white !important;
+}
+
+@keyframes buttonHorror {
+  0%, 65% {
+    box-shadow: 0 0 12px #ff0000;
+    transform: scale(1);
+  }
+  66%, 100% {
+    box-shadow: 0 0 25px #ff0000, 0 0 35px #ff0000;
+    transform: scale(1.02);
+  }
+}
+
+
+/* horror background  effect */
+#not-intrested:checked ~ .wrapper .content {
+  background: url('forest.png') no-repeat;
+  background-size: cover;
+  animation: horrorBackground 4s infinite alternate;
+}
+
+@keyframes horrorBackground {
+  0%, 70% {
+    filter: brightness(0.85) contrast(1.3);
+  }
+  71%, 100% {
+    filter: brightness(4) contrast(2) hue-rotate(5deg);
+  }
+}
+
+
+
+
+
+ #not-intrested:checked~.wrapper .content{
+  background: url('forest.png') no-repeat;
+  background-size: cover;
+ }
+  #not-intrested:checked~.wrapper .content main .hero-section{
+  background: transparent;
+ }
+   #not-intrested:checked~.wrapper .content main .about .about-rns .rnsimg .line{
+    height: 200px;
+  opacity: 1;
+  
+ }
+
+#not-intrested:checked~.wrapper .content main .about .about-rns .rnsimg .rns-img{
+border: 5px solid red;
+}
+#not-intrested:checked~.wrapper .content nav .navigations ul li .get-started{
+  display: none;
+}
+#not-intrested:checked~.wrapper .content nav .navigations ul li .go-back{
+  display: flex;
+}
+#not-intrested:checked~.wrapper .content .hero-section .hero-content{
+  display: none;
+}
+ #not-intrested:checked~.wrapper .content main .hero-section .hero-b-content {
+    display: flex;
+  z-index: 4000000000;
+  align-items: center;
+  justify-content: center;
+  
+  position: absolute;
+  bottom: 100px;
+  left: 45%;
+  transition: all 4s ease-in-out;
+  animation: risingbtn 4s forwards 1;
+ }
+
+#not-intrested:checked~.wrapper .content main .hero-section .hero-b-content button{
+  display: flex;
+  background: red;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 60px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  font-family: "Ghost Theory", cursive;
+
+  }
+ #not-intrested:checked~.wrapper .content .courses .courses-cards-container .course-card .card .backface .downside .card-join{
+  display: none;
+}
+ #not-intrested:checked~.wrapper .content .courses .courses-cards-container .course-card .card .backface .downside .go-back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#not-intrested:checked ~ .wrapper .content .course-card .card,
+#not-intrested:checked ~ .wrapper .content .course-card .frontface,
+#not-intrested:checked ~ .wrapper .content .course-card .backface {
+  animation: none !important;
+  text-shadow: none !important;
+  color: white !important;
+  font-family: "Ghost Theory", sans-serif !important;
+}
+
+/* join now */
+
+#join-now:checked~ .wrapper .content{
+
+ background: url('heaven.png') no-repeat;
+ background-size: cover;
+ background-position: center;
+ font-family: 'Great Vibes', cursive;
+ }
+   #join-now:checked~.wrapper .content main .hero-section{
+  background: transparent;
+ }
+   #join-now:checked~ .wrapper .content nav .logo .logo-text{
+
+font-family:  cursive;
+
+ }
+   #join-now:checked~ .wrapper .content nav .logo .logo-text .logo-span{
+
+color: blue;
+
+ }
+  #join-now:checked~ .wrapper .content nav .navigations ul li a, button{
+
+font-family:  cursive;
+
+ }
+  #join-now:checked~ .wrapper .content nav .navigations ul li button{
+
+background: blue;
+
+ }
+   #join-now:checked~ .wrapper .content nav .navigations ul li .get-started{
+
+display: none;
+
+
+ }
+    #join-now:checked~ .wrapper .content nav .navigations ul li .starting-soon{
+
+display: flex;
+  background: blue;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+   font-family: cursive;
+
+
+ }
+  #join-now:checked~.wrapper .content main .hero-section .heroimg1{
+  display: none;
+
+ }
+ #join-now:checked~.wrapper .content main .hero-section .heroimg2{
+  display: block;
+  left: 50%;
+
+ }
+ #join-now:checked~.wrapper .content main .hero-section .hero-content {
+  display: none;
+ }
+ #join-now:checked~.wrapper .content main .hero-section .hero-h-content {
+    display: flex;
+  z-index: 4000000000;
+  align-items: center;
+  justify-content: center;
+  
+  position: absolute;
+  bottom: 100px;
+  left: 45%;
+  transition: all 4s ease-in-out;
+  animation: risingbtn 4s forwards 1;
+ }
+  #join-now:checked~.wrapper .content main .hero-section .hero-h-content button{
+  background: blue;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+   font-family: cursive;
+  }
+
+
+   #join-now:checked~.wrapper .content main .about #about{
+  font-family: cursive;
+  color: blue;
+ }
+    #join-now:checked~.wrapper .content main .about .about-course .text p, p a{
+  font-family: cursive;
+  
+ }
+     #join-now:checked~.wrapper .content main .about .about-course .text  p a{
+ color: blue;
+  
+ }
+     #join-now:checked~.wrapper .content main .about .about-course .about-img img:hover{
+    transform: rotateZ(-5deg) scale(1.1);
+    border: 2px solid blue;
+    box-shadow: 0px 0px 10px 10px blue, 0px 0px 10px 10px blue;
+  
+ }
+  #join-now:checked~.wrapper .content main .about .about-rns .rnsimg .rns-img{
+    outline: none;
+    border: 5px solid blue;
+    box-shadow: 0px 0px 100px 40px blue, 0px 0px 10px 10px blue;
+  
+ }  #join-now:checked~.wrapper .content main .about .about-rns .rnsimg .rns-img:hover{
+    
+    transform: scale(1.1) rotate(360deg);
+  
+ }
+   #join-now:checked~.wrapper .content main .about .about-rns .rnsimg .line{
+    
+ display: none;
+  
+ }
+#join-now:checked~.wrapper .content main .about .about-rns .rnsimg {
+    
+ overflow: visible;
+  
+ }
+
+#join-now:checked~.wrapper .content main .about .about-rns .details .rns-name {
+    font-family: cursive;
+color: blue;
+  
+ }
+ #join-now:checked~.wrapper .content main .about .about-rns .details .rns-post span{
+    font-family: cursive;
+    background: #0099ff;
+  
+ }
+  #join-now:checked~.wrapper .content main .about .about-rns .details .rns-post .post-span2{
+    
+    background: blue;
+  
+ }
+  #join-now:checked~.wrapper .content main .about .about-rns .details .educations span {
+    font-family: cursive;
+    background: #0099ff;
+  
+ }
+  #join-now:checked~.wrapper .content main .about .about-rns .details .rns-summary{
+    font-family: cursive;
+
+  
+ }
+ #join-now:checked~.wrapper .content main .courses #courses{
+    font-family: cursive;
+    color: blue;
+  
+ }
+
+
+
+
+#join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .course-category div{
+    font-family: cursive;
+    background: blue;
+
+  
+ }
+
+   #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .course-category .comingsoon{
+    font-family: cursive;
+    background: white;
+    color: blue;
+
+  
+ }
+   #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .course-name {
+    font-family: cursive;
+    color: blue;
+
+  
+ }
+    #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .course-provider {
+    font-family: cursive;
+    color: rgba(255, 255, 255, 0.692);
+
+  
+ }
+#join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .course-discription {
+    font-family: cursive;
+    color: rgba(255, 255, 255, 0.692);
+
+  
+ }
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .course-content span {
+    font-family: cursive;
+    background: #0099ff;
+
+  
+ }
+
+#join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface  {
+   background: url('hcardbg.jpeg') no-repeat;
+   background-size: cover;
+ }
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .card1-img {
+   background: url('dsacold.png') no-repeat;
+   background-size: cover;
+   background-position: center center;
+ }
+
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface  {
+   background: url('hcardbg.jpeg') no-repeat;
+   background-size: cover;
+}
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .frontface .card2-img {
+   background: url('genaicold.png') no-repeat;
+   background-size: cover;
+   background-position: center center;
+ }
+    #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface .upside .course-name {
+    font-family: cursive;
+    color: blue;
+    font-size: 25px;
+
+  
+ }
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface .upside .course-discription {
+    font-family: cursive;
+    color: rgba(255, 255, 255, 0.692);
+
+  
+ }
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface .upside .features div {
+    font-family: cursive;
+    color: white;
+
+  
+ }
+  #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface .downside {
+border-color: blue;
+}
+
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface .downside .card-join {
+    display: none;
+}
+ #join-now:checked~.wrapper .content main .courses .courses-cards-container .course-card .card .backface .downside .card-soon {
+    font-family: cursive;
+    color: white;
+    background: blue;
+    display: flex;
+ 
+}
+ #join-now:checked~.wrapper .content footer .footer-container .footer-box h2 {
+    font-family: cursive;
+    color: blue;
+}
+ #join-now:checked~.wrapper .content footer .footer-container .footer-box p, div ul li , a{
+    font-family: cursive;
+    color: white;
+}
+ #join-now:checked~.wrapper .content footer  p {
+    font-family: cursive;
+    color: white;
+}
+
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  nav {
+    flex-direction: row;
+    padding: 20px 30px;
+  }
+  
+  .logo {
+    margin-bottom: 0;
+  }
+  
+  .logo-text {
+    font-size: 28px;
+  }
+  
+  nav ul {
+    gap: 25px;
+  }
+  
+  .hero-section {
+    height: 400px;
+    margin-top: 100px;
+  }
+  
+  .heroimg img {
+    max-height: 400px;
+  }
+  
+  .hero-content {
+    flex-direction: row;
+    bottom: 50px;
+  }
+  
+  .hero-get, .not-intrested {
+    width: auto;
+  }
+  
+  #about {
+    font-size: 42px;
+  }
+  
+  .about-course {
+    flex-direction: row;
+    margin: 40px 20px;
+    padding: 40px;
+    font-size: 20px;
+  }
+  
+  .about-course .text {
+    text-align: left;
+  }
+  .about-img{
+    width: 70%
+  }
+  .about-img img {
+    height: 250px;
+  }
+  
+  .about-rns {
+    flex-direction: row;
+    gap: 50px;
+    padding: 30px 50px;
+  }
+  
+  .rns-name {
+    text-align: left;
+  }
+  
+  .details {
+    text-align: left;
+    width: 50%;
+  }
+  
+  .courses-cards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0px 30px;
+  }
+  
+  .course-card {
+    width: 45%;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 30px 20px;
+  }
+  
+  .footer-box {
+    text-align: left;
+  }
+  
+  /* Larger eyes for tablet */
+  .horror-eyes {
+    top: 110px;
+    gap: 30px;
+    max-width: 600px;
+  }
+  
+  .eye {
+    width: 130px;
+    height: 65px;
+  }
+  
+  .iris {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .pupil {
+    width: 15px;
+    height: 35px;
+  }
+}
+.bline{
+  max-height: 1900px;
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  nav {
+    padding: 30px;
+  }
+  
+  .logo-text {
+    font-size: 30px;
+  }
+  
+  nav ul {
+    gap: 40px;
+  }
+  
+  .hero-section {
+    height: 500px;
+  }
+  
+  .heroimg img {
+    max-height: 500px;
+  }
+  
+  .hero-content {
+    bottom: 100px;
+    width: auto;
+    left: 45%;
+    transform: translateX(0);
+  }
+  
+  #about {
+    font-size: 50px;
+  }
+  
+  .about-course {
+    margin: 50px;
+    padding: 100px;
+    font-size: 30px;
+  }
+  .about-img{
+    max-width: 60%;
+    min-width: 20%;
+  }
+  .about-img img {
+    height: 300px;
+  }
+  
+  .about-rns {
+    gap: 100px;
+    padding: 30px 100px;
+    width: 80%;
+  }
+  
+  .rnsimg {
+    height: 300px;
+  }
+  
+  .rns-img {
+    height: 300px;
+    width: 300px;
+  }
+  
+  .courses-cards-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 100px;
+    padding: 0px 100px;
+  }
+  
+  .course-card {
+    width: 350px;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+    padding: 40px;
+  }
+  
+  /* Largest eyes for desktop */
+  .horror-eyes {
+    top: 100px;
+    gap: 40px;
+    max-width: 700px;
+  }
+  
+  .eye {
+    width: 160px;
+    height: 80px;
+  }
+  
+  .iris {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .pupil {
+    width: 18px;
+    height: 45px;
+  }
+}
